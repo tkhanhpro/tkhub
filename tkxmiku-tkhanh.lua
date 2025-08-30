@@ -404,9 +404,9 @@ spawn(function()
 	until game:IsLoaded();
 	local ChatService = game:GetService("Chat");
 	wait(1);
-	((require(game.ReplicatedStorage.Notification)).new("<Color=Purple>[ Welcome " .. game.Players.LocalPlayer.DisplayName .. " ]<Color=/>")):Display();
+	((require(game.ReplicatedStorage.Notification)).new("<Color=Purple>Xin chào bạn " .. game.Players.LocalPlayer.DisplayName .. "<Color=/>")):Display();
 	wait(1);
-	((require(game.ReplicatedStorage.Notification)).new("<Color=Yellow>[ Enjoy for script ]<Color=/>")):Display();
+	((require(game.ReplicatedStorage.Notification)).new("<Color=Yellow>Chúc bạn sử dụng vui vẻ<Color=/>")):Display();
 end);
 function CheckQuest()
 	MyLevel = (game:GetService("Players")).LocalPlayer.Data.Level.Value;
@@ -11966,43 +11966,43 @@ spawn(function()
 		pcall(function()
 			local response = (((game:GetService("ReplicatedStorage")):WaitForChild("Remotes")):WaitForChild("CommF_")):InvokeServer("ColorsDealer", "1");
 			if response then
-				HakiDealer:Set("ðŸŸ¢ Master Of Auras Spawning");
+				HakiDealer:Set("Master Of Auras Spawning");
 			else
-				HakiDealer:Set("ðŸ”´ Master Of Auras Not Spawn");
+				HakiDealer:Set("Master Of Auras Not Spawn");
 			end;
 		end);
 	end;
 end);
-ServTab:Button("Rejoin Server", function()
+ServTab:Button("Rejoin Server hiện tại", function()
 	(game:GetService("TeleportService")):Teleport(game.PlaceId, (game:GetService("Players")).LocalPlayer);
 end);
-ServTab:Button("Server Hop", function()
+ServTab:Button("Đổi Server", function()
 	while wait(0.2) do
 		local module = (loadstring(game:HttpGet("https://roblox.farrghii.com/Hop.lua")))();
 		module:Teleport(game.PlaceId, "Singapore");
 	end;
 end);
-ServTab:Button("Hop Lower Player", function()
+ServTab:Button("Đổi Server ít người", function()
 	local module = (loadstring(game:HttpGet("https://raw.githubusercontent.com/raw-scriptpastebin/FE/main/Server_Hop_Settings")))();
 	module:Teleport(game.PlaceId);
 end);
 spawn(function()
 	while wait(0.2) do
 		pcall(function()
-			JobAiDee:Set("Server Job ID : " .. game.JobId);
+			JobAiDee:Set("Server ID hiện tại: " .. game.JobId);
 		end);
 	end;
 end);
 ServTab:Line();
-JobAiDee = ServTab:Label("Server Job ID : ");
-ServTab:Button("Copy Server Job ID", function()
+JobAiDee = ServTab:Label("Server ID hiện tại: ");
+ServTab:Button("Sao chép ID Server hiện tại", function()
 	setclipboard(tostring(game.JobId));
 end);
-ServTab:Textbox("Enter Server Job ID", true, function(value)
+ServTab:Textbox("Nhập ID Server cần join", true, function(value)
 	local parseResult = string.gsub(value, "`", "");
 	_G.JobId = parseResult;
 end);
-ServTab:Button("Join Sever", function()
+ServTab:Button("Join Server", function()
 	(game:GetService("TeleportService")):TeleportToPlaceInstance(game.placeId, _G.JobId, game.Players.LocalPlayer);
 end);
 ServTab:Seperator("Status");
@@ -12051,4 +12051,4 @@ for _, v in pairs(resultNormal) do
 		ServTab:Label(tostring(NormalFruitInfo));
 	end;
 end;
-print("Script Loaded!");
+print("Tải thành công TK-Hub!");
