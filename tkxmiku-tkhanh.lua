@@ -36,7 +36,7 @@
 -- end
 -- _G._secondaryData = nil
 -- _G.__userKey = nil
-print("✅ Security verification passed. Loading NoxHub...")
+print("✅ Security verification passed. Loading TK-Hub...")
 if game.PlaceId == 2753915549 then
 	World1 = true;
 elseif game.PlaceId == 4442272183 then
@@ -62,22 +62,22 @@ local Library = Update:Window({
 });
 local MainTab = Library:Tab("Main", "rbxassetid://10723407389");
 local FarmTab = Library:Tab("Cày", "rbxassetid://10723415335");
-local ItemsTab = Library:Tab("Vật phẩm", "rbxassetid://10709782497");
-local SettingsTab = Library:Tab("Cài đặt", "rbxassetid://10734950309");
-local LocalPlayerTab = Library:Tab("Nhân vật", "rbxassetid://10747373176");
+local ItemsTab = Library:Tab("Vật Phẩm", "rbxassetid://10709782497");
+local SettingsTab = Library:Tab("Cài Đặt", "rbxassetid://10734950309");
+local LocalPlayerTab = Library:Tab("Nhân Vật", "rbxassetid://10747373176");
 local HoldTab = Library:Tab("Skills", "rbxassetid://10734984606");
 if World3 then
-	SeaTab = Library:Tab("Sự kiện biển", "rbxassetid://10709761530");
-	SettingSeaTab = Library:Tab("Cài đặt sự kiện biển", "rbxassetid://10709810948");
+	SeaTab = Library:Tab("Sự Kiện Biển", "rbxassetid://10709761530");
+	SettingSeaTab = Library:Tab("Cài Đặt Sự Kiện Biển", "rbxassetid://10709810948");
 end;
 if World2 or World3 then
-	SeaStackTab = Library:Tab("Stack sea", "rbxassetid://10747376931");
+	SeaStackTab = Library:Tab("Đảo Rồng", "rbxassetid://10747376931");
 end;
 if World3 then
-	CraftTab = Library:Tab("Chế tạo", "rbxassetid://10723405360");
-	DragonDojoTab = Library:Tab("Dragon dojo", "rbxassetid://10734951847");
+	CraftTab = Library:Tab("Chế Tạo", "rbxassetid://10723405360");
+	DragonDojoTab = Library:Tab("Dragon Dojo", "rbxassetid://10734951847");
 end;
-local StatsTab = Library:Tab("Chỉ số", "rbxassetid://10709770317");
+local StatsTab = Library:Tab("Chỉ Số", "rbxassetid://10709770317");
 if World3 or World2 then
 	RaceV4Tab = Library:Tab("Tộc V4", "rbxassetid://10723425539");
 end;
@@ -85,10 +85,10 @@ local CombatTab = Library:Tab("Combat", "rbxassetid://10734975486");
 if World2 or World3 then
 	RaidTab = Library:Tab("Raid", "rbxassetid://10723345749");
 end;
-local EspTab = Library:Tab("Định vị", "rbxassetid://10723346959");
-local TeleportTab = Library:Tab("Dịch chuyển", "rbxassetid://10734886004");
+local EspTab = Library:Tab("Định Vị", "rbxassetid://10723346959");
+local TeleportTab = Library:Tab("Dịch Chuyển", "rbxassetid://10734886004");
 local ShopTab = Library:Tab("Shop", "rbxassetid://10734952479");
-local FruitTab = Library:Tab("Trái ác quỷ", "rbxassetid://10734883986");
+local FruitTab = Library:Tab("Trái Ác Quỷ", "rbxassetid://10734883986");
 local MiscTab = Library:Tab("Khác", "rbxassetid://10723424838");
 local ServTab = Library:Tab("Server", "rbxassetid://10723426722");
 _G.Settings = {
@@ -363,13 +363,13 @@ _G.Settings = {
 		if not isfolder("TK-Hub") then
 			makefolder("TK-Hub");
 		end;
-		if not isfolder("NoxHub/Blox Fruits/") then
-			makefolder("NoxHub/Blox Fruits/");
+		if not isfolder("TK-Hub/") then
+			makefolder("TK-Hub/");
 		end;
-		if not isfile(("NoxHub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json")) then
-			writefile("NoxHub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", (game:GetService("HttpService")):JSONEncode(_G.Settings));
+		if not isfile(("TK-Hub/" .. game.Players.LocalPlayer.Name .. ".json")) then
+			writefile("TK-Hub/" .. game.Players.LocalPlayer.Name .. ".json", (game:GetService("HttpService")):JSONEncode(_G.Settings));
 		else
-			local Decode = (game:GetService("HttpService")):JSONDecode(readfile("NoxHub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"));
+			local Decode = (game:GetService("HttpService")):JSONDecode(readfile("TK-Hub/" .. game.Players.LocalPlayer.Name .. ".json"));
 			for i, v in pairs(Decode) do
 				_G.Settings[i] = v;
 			end;
@@ -382,15 +382,15 @@ end;
 (getgenv()).SaveSetting = function()
 	if Update:SaveSettings() then
 		if readfile and writefile and isfile and isfolder then
-			if not isfile(("NoxHub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json")) then
+			if not isfile(("TK-Hub/" .. game.Players.LocalPlayer.Name .. ".json")) then
 				(getgenv()).Load();
 			else
-				local Decode = (game:GetService("HttpService")):JSONDecode(readfile("NoxHub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"));
+				local Decode = (game:GetService("HttpService")):JSONDecode(readfile("TK-Hub/" .. game.Players.LocalPlayer.Name .. ".json"));
 				local Array = {};
 				for i, v in pairs(_G.Settings) do
 					Array[i] = v;
 				end;
-				writefile("NoxHub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", (game:GetService("HttpService")):JSONEncode(Array));
+				writefile("TK-Hub/" .. game.Players.LocalPlayer.Name .. ".json", (game:GetService("HttpService")):JSONEncode(Array));
 			end;
 		else
 			return warn("Status : Undetected Executor");
