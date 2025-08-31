@@ -1,5 +1,5 @@
 -- local function scary()
---     warn("❌ This script must only be executed from the offical NoxHub loader")
+--     warn("❌ This script must only be executed from the offical TK-Hub loader")
 --         return
 --     end
 
